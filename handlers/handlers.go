@@ -1,9 +1,12 @@
 package handlers
 
-import(
+import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/middlewares"
+	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/routes"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -12,6 +15,7 @@ import(
 func Manejadores() {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/registro", middlewares.ChequeoBD(routes.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
