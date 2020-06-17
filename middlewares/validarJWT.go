@@ -2,6 +2,8 @@ package middlewares
 
 import (
 	"net/http"
+
+	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/routes"
 )
 
 /*ValidarJWT verifica jwt*/
