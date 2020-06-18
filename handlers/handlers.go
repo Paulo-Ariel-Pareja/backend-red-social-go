@@ -20,6 +20,7 @@ func Manejadores() {
 	router.HandleFunc("/verperfil", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.VerPerfil))).Methods("GET")
 	router.HandleFunc("/modificar-perfil", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.ModificarPerfil))).Methods("PUT")
 	router.HandleFunc("/guardar-tweet", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.InsertarTweet))).Methods("POST")
+	router.HandleFunc("/leet-tweet", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.LeoTweets))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
