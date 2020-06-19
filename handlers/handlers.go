@@ -22,7 +22,13 @@ func Manejadores() {
 	router.HandleFunc("/guardar-tweet", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.InsertarTweet))).Methods("POST")
 	router.HandleFunc("/leet-tweet", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.LeoTweets))).Methods("GET")
 	router.HandleFunc("/eliminar-tweet", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.EliminarTweet))).Methods("DELETE")
+	router.HandleFunc("/alta-relacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.AgregarRelacion))).Methods("POST")
+	router.HandleFunc("/baja-relacion", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.EliminarRelacion))).Methods("DELETE")
 
+	router.HandleFunc("/subir-avatar", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.SubirAvatar))).Methods("POST")
+	router.HandleFunc("/subir-banner", middlewares.ChequeoBD(middlewares.ValidarJWT(routes.SubirBanner))).Methods("POST")
+	router.HandleFunc("/obtener-avatar", middlewares.ChequeoBD(routes.ObtenerAvatar)).Methods("GET")
+	router.HandleFunc("/obtener-banner", middlewares.ChequeoBD(routes.ObtenerBanner)).Methods("GET")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"

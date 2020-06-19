@@ -8,6 +8,7 @@ import (
 	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/bd"
 )
 
+/*LeoTweets recupera el tweet indicado*/
 func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
