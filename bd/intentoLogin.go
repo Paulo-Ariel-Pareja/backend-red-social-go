@@ -1,8 +1,6 @@
 package bd
 
 import (
-	"log"
-
 	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/models"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -18,7 +16,6 @@ func IntentoLogin(email, password string) (models.Usuario, bool) {
 	passwordBD := []byte(user.Password)
 	err := bcrypt.CompareHashAndPassword(passwordBD, passwordBytes)
 	if err != nil {
-		log.Fatal(err.Error())
 		return user, false
 	}
 	return user, true
