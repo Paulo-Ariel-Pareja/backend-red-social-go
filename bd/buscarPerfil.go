@@ -2,7 +2,6 @@ package bd
 
 import (
 	"context"
-	"log"
 	"time"
 
 	"github.com/Paulo-Ariel-Pareja/backend-red-social-go/models"
@@ -28,7 +27,6 @@ func BuscarPerfil(ID string) (models.Usuario, error) {
 	perfil.Password = ""
 	err := col.FindOne(ctx, condicion).Decode(&perfil)
 	if err != nil {
-		log.Fatal(err.Error())
 		return perfil, err
 	}
 	return perfil, nil
